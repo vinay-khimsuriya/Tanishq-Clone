@@ -1,11 +1,11 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const cors = require('cors');
+const cors = require("cors");
 dotenv.config();
-app.use(express.static('./BackEnd/public'));
+app.use(express.static("./public"));
 
 PORT = process.env.PORT;
 app.use(cors("*"));
@@ -15,12 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use('/images', express.static('public/images'));
 
-const authRoute = require("./BackEnd/routes/authRoute");
-const userRoute = require("./BackEnd/routes/userRoute");
-const productRoute = require("./BackEnd/routes/productRoute");
-const categoryRoute = require('./BackEnd/routes/productCategoryRoutes');
-const categoryTypeRoute = require('./BackEnd/routes/categoryTypeRoute');
-
+const authRoute = require("./routes/authRoute");
+const userRoute = require("./routes/userRoute");
+const productRoute = require("./routes/productRoute");
+const categoryRoute = require("./routes/productCategoryRoutes");
+const categoryTypeRoute = require("./routes/categoryTypeRoute");
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
