@@ -17,5 +17,5 @@ export const categoryType = [
   "WEDDING",
   "GIFTING",
   "GOLDEN HARVEST",
-  "MORE",
+  "MORE...",
 ];
