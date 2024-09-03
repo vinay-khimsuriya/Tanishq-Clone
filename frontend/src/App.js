@@ -1,21 +1,27 @@
 import "./App.css";
-import { Provider } from "react-redux";
-import appStore from "./redux files/appStore";
+import { useSelector } from "react-redux";
 import Navbar from "./component/Navbar";
 import ImageCarousal from "./carousal/ImageCarousal";
-import Header from "./component/Header";
 import Category from "./component/Category";
+import SignIn from "./component/SignIn";
+import SignUp from "./component/SignUp";
+import Menubar from "./component/Menubar";
 
 function App() {
+  const isSignInDisplay = useSelector((store) => store.header.isSignInDisplay);
+  const isSignUpDisplay = useSelector((store) => store.header.isSignUpDisplay);
+
   return (
-    <Provider store={appStore}>
-      <div className="App relative">
-        <Navbar />
-        <Category />
-        {/* <Header /> */}
-        <ImageCarousal />
-      </div>
-    </Provider>
+    <div className="App relative">
+      <Navbar />
+      <Category />
+      {/* <Header /> */}
+      <ImageCarousal />
+      {isSignInDisplay && <SignIn />}
+      {isSignUpDisplay && <SignUp />}
+
+      <Menubar />
+    </div>
   );
 }
 

@@ -10,13 +10,13 @@ export default function ImageCarousal() {
   const carouselRef = useRef(null);
   const images = [image1, image2, image3, image4, image5];
 
-  // useEffect(() => {
-  //   const scrollInterval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  //   }, 5000);
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
 
-  //   return () => clearInterval(scrollInterval);
-  // }, [images.length]);
+    return () => clearInterval(scrollInterval);
+  }, [images.length]);
 
   useEffect(() => {
     if (carouselRef.current) {
