@@ -4,6 +4,7 @@ import {
   changeIsSignInStatus,
   changeIsUserLogin,
 } from "../redux files/headerSlice";
+import { addUserLoginData } from "../redux files/userSlice";
 
 export default function SignIn() {
   const dispatch = useDispatch();
@@ -54,7 +55,9 @@ export default function SignIn() {
         setError(jsonData.message);
       } else {
         dispatch(changeIsUserLogin(true));
-        alert("User Successfully Login", isUserLogin);
+        // alert("User Successfully Login", isUserLogin);
+        // console.log("data", jsonData.data);
+        dispatch(addUserLoginData(jsonData.data));
 
         dispatch(changeIsSignInStatus(false));
       }

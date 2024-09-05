@@ -27,7 +27,7 @@ export default function ImageCarousal() {
     }
   }, [currentIndex]);
 
-  console.log(carouselRef.current);
+  // console.log(carouselRef.current);
   return (
     <div className="relative">
       <div ref={carouselRef} className="w-full overflow-x-hidden">

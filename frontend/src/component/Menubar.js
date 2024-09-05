@@ -11,6 +11,8 @@ import {
 export default function Menubar() {
   const isMenuClicked = useSelector((store) => store.header.isMenuClicked);
   const isUserLogin = useSelector((store) => store.header.isUserLogin);
+  const userLoginData = useSelector((store) => store.user.userLoginData);
+
   const dispatch = useDispatch();
 
   return (
@@ -21,7 +23,7 @@ export default function Menubar() {
     >
       <div className="w-5/6 overflow-y-auto h-full">
         <div className="w-full bg-white ">
-          <div className="w-full ">
+          <div className="w-full">
             <div className="w-full relative py-10 bg-gradient-to-l text-[#7e2b25] to-[#f6e4e4] via-[#f3cdce] from-[#f7f2f1] ">
               <div className={`${isUserLogin ? "hidden" : "flex"}`}>
                 <div className="w-1/2 ps-20 text-left">
@@ -66,15 +68,15 @@ export default function Menubar() {
                   <div className="flex flex-col items-center justify-center pb-3 pe-10">
                     <img className="size-16 border border-2 outline-dotted my-1 mb-2 rounded-full"></img>
                     <p className="text-sm font-medium text-pretty text-lg">
-                      User Name
+                      {userLoginData ? userLoginData.userName : ""}
                     </p>
                   </div>
-                  <div className=" text-left ps-3 py-3 hover:cursor-pointer font-serif ps-10">
-                    <p className="hover:text-blue-500 pb-1"> Profile change</p>
-                    <p className="hover:text-blue-500 py-1">
+                  <div className=" text-right ps-3 py-3 hover:cursor-pointer font-serif ps-10 text-black">
+                    <p className="hover:text-[#7e2b25] pb-1"> Profile change</p>
+                    <p className="hover:text-[#7e2b25] py-1">
                       Update Payment Method
                     </p>
-                    <p className="hover:text-blue-500 pt-1"> setting</p>
+                    <p className="hover:text-[#7e2b25] pt-1"> setting</p>
                   </div>
                 </div>
 
