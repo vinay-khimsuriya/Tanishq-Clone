@@ -8,7 +8,7 @@ import {
 export default function MyAccount() {
   const dispatch = useDispatch();
   return (
-    <div className="w-72 py-4 border border-slate-300 rounded-md text-[#963b3b] absolute top-[101%] -lg:right-36 -right-28  bg-white">
+    <div className="w-72 py-4 border border-slate-300 rounded-md text-[#963b3b] absolute top-[101%] -lg:right-36 -right-24  bg-white">
       <div className="">
         <h1 className="font-semibold text-2xl mb-3">My Account</h1>
         <p className="text-sm font-medium">Login to access your account</p>

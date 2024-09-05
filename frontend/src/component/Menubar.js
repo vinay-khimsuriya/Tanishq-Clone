@@ -7,6 +7,7 @@ import {
   changeIsSignUpStatus,
   changeIsUserLogin,
 } from "../redux files/headerSlice";
+import profile from "../img/static images/profile.jpg";
 
 export default function Menubar() {
   const isMenuClicked = useSelector((store) => store.header.isMenuClicked);
@@ -66,7 +67,10 @@ export default function Menubar() {
               >
                 <div className="flex justify-center w-full border-b-2">
                   <div className="flex flex-col items-center justify-center pb-3 pe-10">
-                    <img className="size-16 border border-2 outline-dotted my-1 mb-2 rounded-full"></img>
+                    <img
+                      src={isUserLogin ? profile : ""}
+                      className="size-24 border border-2 outline-dotted my-1 mb-2 rounded-full"
+                    ></img>
                     <p className="text-sm font-medium text-pretty text-lg">
                       {userLoginData ? userLoginData.userName : ""}
                     </p>

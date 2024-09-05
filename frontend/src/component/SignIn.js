@@ -55,8 +55,8 @@ export default function SignIn() {
         setError(jsonData.message);
       } else {
         dispatch(changeIsUserLogin(true));
-        // alert("User Successfully Login", isUserLogin);
-        // console.log("data", jsonData.data);
+        alert("User Successfully Login", isUserLogin);
+        console.log("data", jsonData.data);
         dispatch(addUserLoginData(jsonData.data));
 
         dispatch(changeIsSignInStatus(false));
