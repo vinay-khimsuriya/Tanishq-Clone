@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ShopByLook_2_Carousal_Card({ imagePath, name, price }) {
   return (
-    <div className="w-96 border shrink-0 mt-5 lg:mt-0 rounded bg-white">
+    <div className="w-96 border shrink-0 mt-5 lg:mt-0 rounded bg-white relative">
       <div className="w-full p-3">
         <img src={imagePath}></img>
       </div>

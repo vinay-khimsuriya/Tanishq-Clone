@@ -2,11 +2,12 @@ import React from "react";
 import HeadeLineComponent from "../comman component/HeadeLineComponent";
 import ShopByGender from "./container component/ShopByGender";
 import ShopByLook from "./container component/ShopByLook";
+import JewelleryGuides from "./container component/JewelleryGuides";
 
 export default function Container() {
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full lg:w-5/6 mx-4">
+      <div className="w-[95%] lg:w-5/6 mx-4">
         <HeadeLineComponent
           header="Diamond Best Sellers"
           dec="Dazzling diamond jewellery, now at delightful prices"
@@ -29,11 +30,7 @@ export default function Container() {
         />
         <ShopByGender />
         <ShopByLook />
-
-        <HeadeLineComponent
-          header="Jewellery Guides"
-          dec="Check out our ready made guides to make your buying process easier."
-        />
+        <JewelleryGuides />
       </div>
     </div>
   );

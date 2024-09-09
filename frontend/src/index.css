@@ -87,3 +87,40 @@ code {
 .growing-inner-div {
   animation: grow-div 1s ease-in-out infinite;
 }
+
+.text-default-light {
+  color: #fbe9e9;
+}
+.text-default-medium {
+  color: #cc7c7c;
+}
+.text-default-high {
+  color: #995c5c;
+}
+.text-default-extra-high {
+  color: #9a4646;
+}
+
+.bg-default-light {
+  background-color: #fbe9e9;
+}
+.bg-default-medium {
+  background-color: #cc7c7c;
+}
+.bg-default-high {
+  background-color: #995c5c;
+}
+.bg-default-extra-high {
+  background-color: #9a4646;
+}
+
+.btn-toggele {
+  color: #995c5c;
+  background-color: white;
+  border: 1px solid brown;
+}
+.btn-toggele:hover {
+  color: white;
+  background-color: brown;
+  background-size: ;
+}
