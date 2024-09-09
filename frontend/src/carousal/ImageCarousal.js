@@ -60,10 +60,10 @@ export default function ImageCarousal() {
           <i class="fa-solid fa-chevron-right"></i>
         </div>
       </div>
-      <div className="w-full flex justify-center py-2">
+      <div className="w-full flex justify-center py-7">
         {images.map((image, index) => (
           <span
-            className={`size-4 rounded-full mx-2 ${
+            className={`size-[10px] rounded-full mx-2 ${
               index !== currentIndex ? "bg-slate-300" : "bg-slate-900"
             }`}
             key={index}

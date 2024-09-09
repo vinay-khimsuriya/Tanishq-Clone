@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeIsSignInStatus,
@@ -13,6 +13,12 @@ export default function SignIn() {
   const [error, setError] = useState("");
 
   const isUserLogin = useSelector((store) => store.header.isUserLogin);
+
+  useEffect(() => {
+    if (usernameRef.current) {
+      usernameRef.current.focus();
+    }
+  }, []);
 
   const validate = () => {
     const username = usernameRef.current.value;

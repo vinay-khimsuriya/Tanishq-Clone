@@ -33,3 +33,57 @@ code {
 .hover-underline:hover::after {
   width: 110%;
 }
+
+@keyframes spin-outline {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.main-animate-div:hover .animate-counter-spin {
+  animation: counter-spin 10s linear infinite;
+}
+.main-animate-div:hover .animate-spin-outline {
+  outline: dashed;
+  outline-color: #110a3b;
+  animation: spin-outline 10s linear infinite;
+}
+
+.static-img-content:hover {
+  box-shadow: 1px 1px 15px #7f2e26;
+}
+.static-img-content:hover div h1 {
+  display: none;
+}
+.static-img-content:hover .explore-div {
+  width: 100%;
+  justify-content: space-between !important;
+  transition: justify-content 10s ease;
+}
+
+@keyframes grow-div {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.growing-inner-div {
+  animation: grow-div 1s ease-in-out infinite;
+}

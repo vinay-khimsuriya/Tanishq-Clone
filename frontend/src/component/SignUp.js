@@ -16,6 +16,12 @@ export default function SignUp() {
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+  useEffect(() => {
+    if (emailRef.current) {
+      emailRef.current.focus();
+    }
+  }, []);
+
   const validate = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;

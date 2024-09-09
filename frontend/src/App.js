@@ -7,6 +7,7 @@ import SignIn from "./component/SignIn";
 import SignUp from "./component/SignUp";
 import Menubar from "./component/Menubar";
 import SpecialCategory from "./component/SpecialCategory";
+import Container from "./component/Container";
 
 function App() {
   const isSignInDisplay = useSelector((store) => store.header.isSignInDisplay);
@@ -22,6 +23,7 @@ function App() {
       {isSignInDisplay && <SignIn />}
       {isSignUpDisplay && <SignUp />}
       <Menubar />
+      <Container />
     </div>
   );
 }
