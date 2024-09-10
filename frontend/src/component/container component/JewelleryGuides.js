@@ -5,7 +5,7 @@ import bg2 from "../../img/static images/shop the look/bg2.png";
 
 export default function JewelleryGuides() {
   return (
-    <div className="w-full">
+    <div className="w-full pb-10">
       <HeadeLineComponent
         header="Jewellery Guides"
         dec="Check out our ready made guides to make your buying process easier."

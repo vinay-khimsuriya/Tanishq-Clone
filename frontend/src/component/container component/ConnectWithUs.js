@@ -5,7 +5,7 @@ import video from "../../img/static images/video.avif";
 
 export default function ConnectWithUs() {
   return (
-    <div className="w-full mt-10">
+    <div className="w-full mb-10">
       <HeadeLineComponent
         header="Connect With Us"
         dec="Check out our ready made guides to make your buying process easier."

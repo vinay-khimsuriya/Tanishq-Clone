@@ -7,7 +7,7 @@ import HeadeLineComponent from "../../comman component/HeadeLineComponent";
 
 export default function ShopByGender() {
   return (
-    <div className="w-full rounded-md">
+    <div className="w-full rounded-md pb-10">
       <HeadeLineComponent
         header="Shop By Gender"
         dec="First-class jewelry for first-class Men, Women & Children."

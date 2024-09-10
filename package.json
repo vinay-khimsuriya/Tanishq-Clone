@@ -7,6 +7,9 @@
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "axios": "^1.7.7",
+    "concurrently": "^8.2.2",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   }
 }

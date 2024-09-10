@@ -62,15 +62,15 @@ code {
 }
 
 .static-img-content:hover {
-  box-shadow: 1px 1px 15px #7f2e26;
+  box-shadow: 2px 2px 10px #c1a9a7, -2px 2px 10px #c1a9a7, 2px -2px 10px #c1a9a7;
 }
 .static-img-content:hover div h1 {
   display: none;
 }
 .static-img-content:hover .explore-div {
   width: 100%;
-  justify-content: space-between !important;
-  transition: justify-content 10s ease;
+  /* background-color: #110a3b; */
+  transition: width 0.5s linear;
 }
 
 @keyframes grow-div {
@@ -124,4 +124,31 @@ code {
 .btn-toggele:hover {
   color: #efe3e3;
   background-color: #c25252;
+}
+
+.custom-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-arrow:hover {
+  background-color: #333; /* Darken on hover */
+}
+
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  right: -50px; /* Adjust to move arrow outside */
+  transform: translateY(-50%);
+}
+
+.prev-arrow {
+  position: absolute;
+  top: 50%;
+  left: -50px; /* Adjust to move arrow outside */
+  transform: translateY(-50%);
 }

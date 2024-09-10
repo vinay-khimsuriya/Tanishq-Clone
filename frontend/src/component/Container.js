@@ -4,31 +4,22 @@ import ShopByGender from "./container component/ShopByGender";
 import ShopByLook from "./container component/ShopByLook";
 import JewelleryGuides from "./container component/JewelleryGuides";
 import ConnectWithUs from "./container component/ConnectWithUs";
+import DiamondBestSellers from "./container component/DiamondBestSellers";
+import TopSellers from "../carousal/TopSellers";
+import NewForYou from "./container component/NewForYou";
+import ShopByCollection from "./container component/ShopByCollection";
+import ShopByCategoryComponent from "../comman component/ShopByCategoryComponent";
+import ShopByCategory from "./container component/ShopByCategory";
 
 export default function Container() {
   return (
     <div className="w-full flex justify-center">
-      <div className="w-[95%] lg:w-5/6 mx-4">
-        <HeadeLineComponent
-          header="Diamond Best Sellers"
-          dec="Dazzling diamond jewellery, now at delightful prices"
-        />
-        <HeadeLineComponent
-          header="Shop By Category"
-          dec="Browse through your favorite categories. We've got them all!"
-        />
-        <HeadeLineComponent
-          header="Shop By Collections"
-          dec="Whatever the occasion, we've got a beautiful piece of jewellery for you."
-        />
-        <HeadeLineComponent
-          header="Top Sellers"
-          dec="Love the most to bought the most"
-        />
-        <HeadeLineComponent
-          header="New For You!"
-          dec="Our latest releases, just for you !"
-        />
+      <div className="w-[95%] lg:w-[86%] mx-4">
+        <DiamondBestSellers />
+        <ShopByCategory />
+        <ShopByCollection />
+        <TopSellers />
+        <NewForYou />
         <ShopByGender />
         <ShopByLook />
         <JewelleryGuides />

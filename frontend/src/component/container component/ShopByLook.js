@@ -9,7 +9,7 @@ import ShopByLook_6 from "./shop by look/ShopByLook_6";
 
 export default function ShopByLook() {
   return (
-    <div className="w-full">
+    <div className="w-full pb-10">
       <HeadeLineComponent
         header="Shop the Look"
         dec="Discover your timeless style and reveal your unique look!"

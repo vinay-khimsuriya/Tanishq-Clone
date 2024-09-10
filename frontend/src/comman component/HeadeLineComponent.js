@@ -3,7 +3,7 @@ import lineDesign from "../img/static images/Line-Design.svg";
 
 export default function HeadeLineComponent({ header, dec }) {
   return (
-    <div className="w-full text-[#7f2e26] text-opacity-85">
+    <div className="w-full text-[#7f2e26] text-opacity-85 ">
       <div className="flex flex-col items-center justify-center">
         <h1
           className={`font-semibold ${

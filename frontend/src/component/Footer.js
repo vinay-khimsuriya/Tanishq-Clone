@@ -40,7 +40,7 @@ export default function Footer() {
                   setIsUseFullLinks(!isUsefulLinks);
                 }}
               >
-                <h1 className="font-medium">Useful Links</h1>
+                <h1 className="font-medium text-[1.375rem]">Useful Links</h1>
                 {!isUsefulLinks && (
                   <i class="fa-solid fa-plus text-lg lg:hidden"></i>
                 )}
@@ -83,7 +83,7 @@ export default function Footer() {
                   setIsInformation(!isInformation);
                 }}
               >
-                <h1 className="">Information</h1>
+                <h1 className="font-medium text-[1.375rem]">Information</h1>
                 {!isInformation && (
                   <i class="fa-solid fa-plus text-lg lg:hidden"></i>
                 )}
@@ -123,7 +123,7 @@ export default function Footer() {
                   setIsContentctUS(!isContectUs);
                 }}
               >
-                <h1 className="font-medium">Contact Us</h1>
+                <h1 className="font-medium text-[1.375rem]">Contact Us</h1>
                 {!isContectUs && (
                   <i class="fa-solid fa-plus text-lg lg:hidden"></i>
                 )}

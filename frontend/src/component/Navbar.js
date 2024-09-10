@@ -44,7 +44,7 @@ export default function Navbar() {
   return (
     <div className="w-full flex flex-col items-center justify-center sticky top-0 z-50">
       <div className="w-full flex justify-center bg-[#f2eae8]">
-        <div className="w-full lg:w-5/6 mx-4 mb-4 lg:mb-4 lg:mx-0 lg:mb-0 pt-3 flex flex-wrap lg:flex-nowrap justify-between items-center">
+        <div className="w-full lg:w-[85%] mx-4 mb-4 lg:mx-0 lg:mb-0 py-[0.35rem] flex flex-wrap lg:flex-nowrap justify-between items-center">
           <div className="flex items-center">
             <div className="block lg:hidden pr-2 pl-1 pb-1 lg:pb-2 text-3xl hover:cursor-pointer opacity-55">
               <i
@@ -55,7 +55,7 @@ export default function Navbar() {
               ></i>
             </div>
             <a href="#">
-              <div className="pb-3">
+              <div className="py-3 lg:py-0">
                 <img
                   src={logo}
                   alt="image"
@@ -69,12 +69,12 @@ export default function Navbar() {
               </div>
             </a>
           </div>
-          <div className="w-full lg:w-3/5 mx-0 lg:mx-[0.625rem] pt-2  lg:my-0 order-last lg:order-none">
+          <div className="w-full lg:w-[60%] mx-0 lg:mx-[0.625rem] lg:my-0 order-last lg:order-none">
             <section className="m-0 w-full relative">
               <div className="h-10 sm:mr-[0.5em]">
                 <div className="bg-white flex justify-between items-center py-[0.125rem] rounded-sm">
                   <input
-                    className="text-left w-full px-3 text-sm font-normal text-[#495057] bg-white outline-none"
+                    className="text-left w-full px-3 lg:py-2  text-sm font-normal text-[#495057] bg-white outline-none"
                     placeholder={
                       isLargeScreen
                         ? "Search for Gold Jewellery, Diamond..."
