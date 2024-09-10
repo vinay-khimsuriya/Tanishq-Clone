@@ -3,6 +3,7 @@ import HeadeLineComponent from "../comman component/HeadeLineComponent";
 import ShopByGender from "./container component/ShopByGender";
 import ShopByLook from "./container component/ShopByLook";
 import JewelleryGuides from "./container component/JewelleryGuides";
+import ConnectWithUs from "./container component/ConnectWithUs";
 
 export default function Container() {
   return (
@@ -31,6 +32,7 @@ export default function Container() {
         <ShopByGender />
         <ShopByLook />
         <JewelleryGuides />
+        <ConnectWithUs />
       </div>
     </div>
   );

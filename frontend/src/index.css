@@ -88,39 +88,40 @@ code {
   animation: grow-div 1s ease-in-out infinite;
 }
 
+.text-default {
+}
 .text-default-light {
-  color: #fbe9e9;
+  color: #cb7676;
 }
 .text-default-medium {
-  color: #cc7c7c;
+  color: #c05d5d;
 }
 .text-default-high {
-  color: #995c5c;
+  color: #c75e5e;
 }
 .text-default-extra-high {
-  color: #9a4646;
+  color: #c25252;
 }
 
 .bg-default-light {
-  background-color: #fbe9e9;
+  background-color: #efe3e3;
 }
 .bg-default-medium {
-  background-color: #cc7c7c;
+  background-color: #f0c8c8;
 }
 .bg-default-high {
-  background-color: #995c5c;
+  background-color: #f2b8b8;
 }
 .bg-default-extra-high {
-  background-color: #9a4646;
+  background-color: #f4abab;
 }
 
 .btn-toggele {
-  color: #995c5c;
-  background-color: white;
-  border: 1px solid brown;
+  color: #c25252;
+  background-color: #efe3e3;
+  border: 1px solid #c25252;
 }
 .btn-toggele:hover {
-  color: white;
-  background-color: brown;
-  background-size: ;
+  color: #efe3e3;
+  background-color: #c25252;
 }
