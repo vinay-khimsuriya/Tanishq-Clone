@@ -1,14 +1,12 @@
 import "./App.css";
 import { useSelector } from "react-redux";
 import Navbar from "./component/Navbar";
-import ImageCarousal from "./carousal/ImageCarousal";
 import Category from "./component/Category";
 import SignIn from "./component/SignIn";
 import SignUp from "./component/SignUp";
 import Menubar from "./component/Menubar";
-import SpecialCategory from "./component/SpecialCategory";
-import Container from "./component/Container";
 import Footer from "./component/Footer";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const isSignInDisplay = useSelector((store) => store.header.isSignInDisplay);
@@ -18,13 +16,10 @@ function App() {
     <div className="App relative">
       <Navbar />
       <Category />
-      {/* <Header /> */}
-      <SpecialCategory />
-      <ImageCarousal />
       {isSignInDisplay && <SignIn />}
       {isSignUpDisplay && <SignUp />}
       <Menubar />
-      <Container />
+      <Outlet />
       <Footer />
     </div>
   );

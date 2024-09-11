@@ -7,17 +7,39 @@ import { Provider } from "react-redux";
 import appStore from "./redux files/appStore";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Container from "./component/Container";
+import ProductDetail from "./component/ProductDetail";
+import SpecialCategory from "./component/SpecialCategory";
+import ImageCarousal from "./carousal/ImageCarousal";
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: (
+          <div>
+            <SpecialCategory />
+            <ImageCarousal />
+            <Container />
+          </div>
+        ),
+      },
+      {
+        path: "/product",
+        element: <ProductDetail />,
+      },
+    ],
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={appStore}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <RouterProvider router={appRouter} />
   </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

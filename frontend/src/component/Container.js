@@ -1,5 +1,4 @@
 import React from "react";
-import HeadeLineComponent from "../comman component/HeadeLineComponent";
 import ShopByGender from "./container component/ShopByGender";
 import ShopByLook from "./container component/ShopByLook";
 import JewelleryGuides from "./container component/JewelleryGuides";
