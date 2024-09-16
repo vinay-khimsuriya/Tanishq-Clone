@@ -12,6 +12,7 @@ import Container from "./component/Container";
 import ProductDetail from "./component/ProductDetail";
 import SpecialCategory from "./component/SpecialCategory";
 import ImageCarousal from "./carousal/ImageCarousal";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const appRouter = createBrowserRouter([
   {
@@ -38,7 +39,9 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={appStore}>
-    <RouterProvider router={appRouter} />
+    <RouterProvider router={appRouter}>
+      <ScrollToTop />
+    </RouterProvider>
   </Provider>
 );
 

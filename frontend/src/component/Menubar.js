@@ -8,6 +8,7 @@ import {
   changeIsUserLogin,
 } from "../redux files/headerSlice";
 import profile from "../img/static images/profile.jpg";
+import { emptyProductCart } from "../redux files/cartSlice";
 
 export default function Menubar() {
   const isMenuClicked = useSelector((store) => store.header.isMenuClicked);
@@ -87,7 +88,10 @@ export default function Menubar() {
                 <div className="flex justify-center">
                   <p
                     className="hover:text-red-500 hover:cursor-pointer pt-2 font-serif text-lg"
-                    onClick={() => dispatch(changeIsUserLogin(false))}
+                    onClick={() => {
+                      dispatch(changeIsUserLogin(false));
+                      dispatch(emptyProductCart());
+                    }}
                   >
                     Log Out
                   </p>

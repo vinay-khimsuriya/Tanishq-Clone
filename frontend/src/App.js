@@ -7,6 +7,7 @@ import SignUp from "./component/SignUp";
 import Menubar from "./component/Menubar";
 import Footer from "./component/Footer";
 import { Outlet } from "react-router-dom";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   const isSignInDisplay = useSelector((store) => store.header.isSignInDisplay);
@@ -19,6 +20,7 @@ function App() {
       {isSignInDisplay && <SignIn />}
       {isSignUpDisplay && <SignUp />}
       <Menubar />
+      <ScrollToTop />
       <Outlet />
       <Footer />
     </div>

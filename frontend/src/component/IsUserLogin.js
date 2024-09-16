@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIsUserLogin } from "../redux files/headerSlice";
 import profile from "../img/static images/profile.jpg";
+import { emptyProductCart } from "../redux files/cartSlice";
 
 export default function IsUserLogin() {
   const dispatch = useDispatch();
@@ -27,7 +28,10 @@ export default function IsUserLogin() {
       <div className="flex justify-center">
         <p
           className="hover:text-red-500 hover:cursor-pointer pt-2 pb-2 font-serif text-lg"
-          onClick={() => dispatch(changeIsUserLogin(false))}
+          onClick={() => {
+            dispatch(changeIsUserLogin(false));
+            dispatch(emptyProductCart());
+          }}
         >
           Log Out
         </p>

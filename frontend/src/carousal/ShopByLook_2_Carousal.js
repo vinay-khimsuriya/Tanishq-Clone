@@ -16,7 +16,7 @@ export default function ShopByLook_2_Carousal() {
       const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
 
       setShowLeftArrow(scrollLeft > 0);
-      console.log(scrollLeft, clientWidth, scrollWidth);
+      // console.log(scrollLeft, clientWidth, scrollWidth);
       setShowRightArrow(scrollLeft + clientWidth < scrollWidth);
     }
   };

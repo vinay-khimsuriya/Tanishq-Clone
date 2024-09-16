@@ -3,9 +3,13 @@ import axios from "axios";
 import Slider from "react-slick";
 import HeadeLineComponent from "../comman component/HeadeLineComponent";
 import CommonCard from "./carousal card/CommonCard";
+import { addProduct } from "../redux files/productSlice";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function TopSellers() {
   const [filteredData, setFilteredData] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getProducts();
@@ -98,9 +102,15 @@ export default function TopSellers() {
         <div className="slider-container">
           <Slider {...sliderSettings}>
             {filteredData.map((product, index) => (
-              <div key={index} className="px-3">
-                <CommonCard product={product} />
-              </div>
+              <Link
+                key={index}
+                to={"product"}
+                onClick={() => dispatch(addProduct(product))}
+              >
+                <div className="px-3">
+                  <CommonCard product={product} />
+                </div>
+              </Link>
             ))}
           </Slider>
         </div>

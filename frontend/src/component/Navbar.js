@@ -8,12 +8,14 @@ import { changeIsMenuClicked } from "../redux files/headerSlice";
 
 export default function Navbar() {
   const [isLargeScreen, setIsLargeScreen] = useState(true);
-  const [cartValue, setCartValue] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   const dispatch = useDispatch();
 
   const isLogin = useSelector((store) => store.header.isUserLogin);
+  const cart = useSelector((store) => store.cart.cart);
+
+  console.log(cart);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -160,7 +162,7 @@ export default function Navbar() {
                 </div>
               </a>
               <div className="flex items-center justify-center absolute -top-1 lg:top-0 -right-[0.75rem] bg-[#a95c5c] rounded-full px-[0.4rem] py-[0.1rem] text-white text-xs">
-                <span>{cartValue}</span>
+                <span>{cart.length}</span>
               </div>
             </div>
           </div>

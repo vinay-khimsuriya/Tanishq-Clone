@@ -3,10 +3,15 @@ import HeadeLineComponent from "../../comman component/HeadeLineComponent";
 import axios from "axios";
 import Slider from "react-slick";
 import CommonCard from "../../carousal/carousal card/CommonCard";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux files/productSlice";
 
 export default function DiamondBestSellers() {
   const [data, setData] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getProducts();
@@ -78,7 +83,7 @@ export default function DiamondBestSellers() {
       const response = await axios.get("http://localhost:4500/api/product");
 
       if (response ?? response.data) {
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
 
         const filter = response.data.filter((dataObject, index) =>
@@ -116,9 +121,15 @@ export default function DiamondBestSellers() {
         <div className="slider-container">
           <Slider {...sliderSettings}>
             {filteredData.map((product, index) => (
-              <div key={index} className="px-3">
-                <CommonCard product={product} />
-              </div>
+              <Link
+                key={index}
+                to={"product"}
+                onClick={() => dispatch(addProduct(product))}
+              >
+                <div className="px-3">
+                  <CommonCard product={product} />
+                </div>
+              </Link>
             ))}
           </Slider>
         </div>

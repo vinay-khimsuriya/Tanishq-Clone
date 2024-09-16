@@ -36,7 +36,8 @@ export default function SignIn() {
     return true;
   };
 
-  const fetchData = async () => {
+  const fetchData = async (e) => {
+    e.preventDefault();
     if (!validate()) {
       return;
     }
@@ -56,12 +57,13 @@ export default function SignIn() {
       });
       const jsonData = await response.json();
 
+      console.log({ jsonData });
+
       if (!response.ok) {
         console.log(response);
         setError(jsonData.message);
       } else {
         dispatch(changeIsUserLogin(true));
-        alert("User Successfully Login", isUserLogin);
         console.log("data", jsonData.data);
         dispatch(addUserLoginData(jsonData.data));
 
