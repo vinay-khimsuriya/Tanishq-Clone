@@ -16,7 +16,7 @@ export default function SpecialCategory() {
   ];
   return (
     <div className="w-full flex justify-center py-6 pb-18 lg:hidden ">
-      <div className="w-5/6 gap-6 flex flex-nowrap justify-center items-start">
+      <div className="w-5/6 gap-6 flex flex-wrap sm:flex-nowrap justify-center items-start">
         {images.map((object, index) => (
           <div key={index} className="w-52">
             <div className="main-animate-div size-full flex flex-col items-center">

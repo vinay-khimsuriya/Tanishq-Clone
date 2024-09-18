@@ -3,7 +3,7 @@ import workwear from "../img/static images/shop the look/workwear.webp";
 
 export default function ShopByLookComponent({ imagePath, name }) {
   return (
-    <div className="w-full flex flex-col items-center justify-center">
+    <div className="w-full my-2 md:my-0 flex flex-col items-center justify-center">
       <div className="">
         {imagePath ? (
           <div className="outline outline-2 rounded-full outline-offset-8">

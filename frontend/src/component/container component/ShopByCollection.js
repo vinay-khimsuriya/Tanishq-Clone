@@ -7,12 +7,12 @@ import HeadeLineComponent from "../../comman component/HeadeLineComponent";
 
 export default function ShopByCollection() {
   return (
-    <div className="w-full pb-10">
+    <div className="w-full pb-10 ">
       <HeadeLineComponent
         header="Shop By Collections"
         dec="Whatever the occasion, we've got a beautiful piece of jewellery for you."
       />
-      <div className="md:flex gap-5">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-5">
         <StaticImageComponent imagePath={stringIt} name="String It" />
 
         <StaticImageComponent

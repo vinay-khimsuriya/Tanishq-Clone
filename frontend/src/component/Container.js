@@ -13,7 +13,7 @@ import ShopByCategory from "./container component/ShopByCategory";
 export default function Container() {
   return (
     <div className="w-full flex justify-center">
-      <div className="w-[95%] lg:w-[86%] mx-4">
+      <div className="flex flex-col items-center justify-center w-[95%] lg:w-[86%]">
         <DiamondBestSellers />
         <ShopByCategory />
         <ShopByCollection />

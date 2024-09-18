@@ -125,15 +125,15 @@ export default function ProductDetailLeft() {
           </div>
         </div>
 
-        <div className="w-full lg:w-5/6 p-2 flex items-center">
-          <div className="w-full flex justify-between p-2 items-center ">
+        <div className="w-full lg:w-5/6 sm:p-2 flex items-center">
+          <div className="w-full flex justify-between sm:p-2 items-center ">
             <div
-              className="p-2 bg-gray-200 rounded-full hover:bg-gray-400"
+              className="hidden sm:block p-2 bg-gray-200 rounded-full hover:bg-gray-400"
               onClick={handleLeftClick}
             >
               <FaAngleLeft />
             </div>
-            <div className="w-4/6 overflow-hidden" ref={horiContRef}>
+            <div className="full sm:w-4/6 overflow-hidden" ref={horiContRef}>
               <div className="w-full flex  ">
                 {images.map((image, index) => (
                   <div className="w-full shrink-0 p-1">
@@ -147,7 +147,7 @@ export default function ProductDetailLeft() {
               </div>
             </div>
             <div
-              className="p-2 bg-gray-200 rounded-full hover:bg-slate-400"
+              className="hidden sm:block p-2 bg-gray-200 rounded-full hover:bg-slate-400"
               onClick={handleRightClick}
             >
               <FaAngleRight />

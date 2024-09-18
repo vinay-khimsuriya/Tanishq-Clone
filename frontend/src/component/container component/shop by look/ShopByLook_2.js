@@ -6,7 +6,11 @@ export default function ShopByLook_2() {
   return (
     <div className="w-full flex flex-wrap mb-5 items-center  bg-[#f4eeee]">
       <div className="w-full lg:w-1/2 relative">
-        <img className="w-full" src={shoplookgirl} />
+        <img className="hidden lg:block w-full" src={shoplookgirl} />
+        <img
+          className="lg:hidden  w-full"
+          src="https://www.tanishq.co.in/on/demandware.static/-/Sites-Tanishq-site-catalog/default/dw42d0296d/ShopByLookImages/Desktop/LargeImages/workwear-588x540.jpg"
+        />
         <div className="size-7 bg-white bg-opacity-35 absolute top-[36%] right-[8%] rounded-full flex justify-center items-center">
           <div className="growing-inner-div rounded-full bg-white"></div>
         </div>

@@ -7,7 +7,7 @@ import elgant from "../../../img/static images/shop the look/elgant.webp";
 export default function shopByLook_1() {
   return (
     <div className="w-full flex justify-center mb-4">
-      <div className="w-5/6 flex justify-center items-end  py-2">
+      <div className="w-full sm:w-5/6 flex flex-wrap sm:flex-nowrap justify-center items-end  py-2">
         <ShopByLookComponent imagePath={workwear} name="Work wear" />
         <ShopByLookComponent imagePath={sleek} name="Sleek" />
         <ShopByLookComponent imagePath={elgant} name="Elgant" />

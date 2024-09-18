@@ -85,7 +85,7 @@ export default function ShopByCategory() {
   };
 
   return (
-    <div className="w-full pb-10">
+    <div className="w-[94%] sm:w-[97%] lg:w-full pb-10">
       <HeadeLineComponent
         header="Shop By Category"
         dec="Browse through your favorite categories. We've got them all!"

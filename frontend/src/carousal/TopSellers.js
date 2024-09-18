@@ -56,7 +56,7 @@ export default function TopSellers() {
     const { onClick } = props;
     return (
       <div
-        className="py-2 px-4 absolute top-1/2 -right-16 -translate-y-1/2 text-default-high bg-default-light hover:text-black hover:bg-stone-300 rounded-full z-10"
+        className=" hidden md:block py-2 px-4 absolute top-1/2 right-6 lg:-right-16 -translate-y-1/2 text-default-high bg-default-light hover:text-black hover:bg-stone-300 rounded-full z-10"
         onClick={onClick}
       >
         <i class="fa-solid fa-chevron-right"></i>
@@ -68,7 +68,7 @@ export default function TopSellers() {
     const { className, style, onClick } = props;
     return (
       <div
-        className="py-2 px-4 absolute top-1/2 -left-16 -translate-y-1/2 text-default-high bg-default-light hover:text-black hover:bg-stone-300 rounded-full z-10"
+        className="hidden md:block py-2 px-4 absolute top-1/2 left-6 lg:-left-16 -translate-y-1/2 text-default-high bg-default-light bg-black  hover:text-black hover:bg-stone-300 rounded-full z-10"
         onClick={onClick}
       >
         <i class="fa-solid fa-chevron-left"></i>

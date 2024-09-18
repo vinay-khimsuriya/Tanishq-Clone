@@ -174,9 +174,9 @@ export default function ProductDetailRight() {
         {/* third div end */}
         {/* forth div */}
         <div className="my-2 divide-y-2 divide-black ">
-          <div className="flex items-center gap-3 justify-center font-bold py-5">
+          <div className="flex flex-col sm:flex-row md:flex-col xl:flex-row items-center gap-3 justify-center font-bold py-5">
             <button
-              className="px-10 py-5 text-black text-center text-nowrap border hover:bg-orange-900 hover:text-white"
+              className="w-1/2 sm:w-auto md:w-1/2 xl:w-auto sm:px-10 md:px-0 xl:px-10 py-5 text-black text-center text-nowrap border hover:bg-orange-900 hover:text-white"
               onClick={() => {
                 if (isUserLogin) {
                   dispatch(addProductToCart(productDetail));
@@ -187,13 +187,13 @@ export default function ProductDetailRight() {
             >
               Add to Cart
             </button>
-            <button className="px-10 py-5 text-white bg-orange-800 hover:bg-orange-900 text-center text-nowrap">
+            <button className="w-1/2 sm:w-auto md:w-1/2 xl:w-auto sm:px-10 md:px-0 xl:px-10 py-5 text-white bg-orange-800 hover:bg-orange-900 text-center text-nowrap">
               Buy Now
             </button>
           </div>
 
-          <div className="w-full flex gap-5 py-8">
-            <div className=" w-1/2 outline outline-[1px] outline-offset-4 relative rounded-[0.01rem]">
+          <div className="w-full blcok sm:flex md:block xl:flex gap-5 py-8">
+            <div className="f-full sm:w-1/2 md:w-full xl:1/2 outline outline-[1px] outline-offset-4 relative rounded-[0.01rem]">
               <select className="w-full p-1 rounded">
                 <option>India</option>
               </select>
@@ -201,7 +201,7 @@ export default function ProductDetailRight() {
                 Country
               </label>
             </div>
-            <div className=" w-1/2 outline outline-[1px] outline-offset-4 relative rounded-[0.01rem]">
+            <div className="w-full sm:w-1/2 md:w-full xl-1/2 outline outline-[1px] outline-offset-4 relative rounded-[0.01rem] mt-4 sm:mt-0 md:mt-4 xl:mt-0">
               <div className="flex justify-between">
                 <input
                   className="w-full"
@@ -240,18 +240,15 @@ export default function ProductDetailRight() {
             </div>
           </div>
 
-          <div className="w-full py-14">
-            <div className="w-full flex md:block xl:flex justify-between p-3 bg-yellow-100">
-              <div className="w-[2/5] md:w-full xl:w-2/5 flex flex-col items-center justify-center">
-                <img
-                  className="w-full md:w-[50%] xl:w-full"
-                  src={exchangeFestival}
-                ></img>
+          <div className="w-full py-10 ">
+            <div className="w-full block sm:flex md:block xl:flex justify-evenly p-3 bg-yellow-100">
+              <div className="w-full xl:w-2/5 flex flex-col items-center justify-center">
+                <img className="w-40 " src={exchangeFestival}></img>
                 <p className="text-xs py-2 text-red-700 cursor-pointer text-center font-semibold hover:text-red-500">
                   Terms and Condition
                 </p>
               </div>
-              <div className="w-3/5 md:w-full xl-3/5 md:mt-6 flex flex-col items-center justify-center">
+              <div className="w-full xl:w-3/5 flex flex-col items-center justify-center py-2 sm:py-0 md:my-2 xl:py-0">
                 <p className="text-sm">Get this product for only</p>
                 <p className="text-orange-900 text-xl font-medium pb-1">
                   14 grams* of GOLD
