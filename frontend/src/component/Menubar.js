@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { categoryType } from "../utils/Categories";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,6 +16,15 @@ export default function Menubar() {
   const userLoginData = useSelector((store) => store.user.userLoginData);
 
   const dispatch = useDispatch();
+
+  const [localUserData, setLocalUserData] = useState(null);
+
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      setLocalUserData(JSON.parse(storedUserData));
+    }
+  }, []);
 
   return (
     <div
@@ -69,11 +78,11 @@ export default function Menubar() {
                 <div className="flex justify-center w-full border-b-2">
                   <div className="flex flex-col items-center justify-center pb-3 pe-10">
                     <img
-                      src={isUserLogin ? profile : ""}
+                      src={localUserData ? localUserData.image : ""}
                       className="size-24 border border-2 outline-dotted my-1 mb-2 rounded-full"
                     ></img>
                     <p className="text-sm font-medium text-pretty text-lg">
-                      {userLoginData ? userLoginData.userName : ""}
+                      {localUserData ? localUserData.userName : ""}
                     </p>
                   </div>
                   <div className=" text-right ps-3 py-3 hover:cursor-pointer font-serif ps-10 text-black">
@@ -91,6 +100,7 @@ export default function Menubar() {
                     onClick={() => {
                       dispatch(changeIsUserLogin(false));
                       dispatch(emptyProductCart());
+                      localStorage.removeItem("userData");
                     }}
                   >
                     Log Out

@@ -20,6 +20,16 @@ export default function SignIn() {
     }
   }, []);
 
+  useEffect(() => {
+    // Check localStorage on component mount
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      // If user data exists in localStorage, update Redux state
+      dispatch(changeIsUserLogin(true));
+      dispatch(addUserLoginData(JSON.parse(storedUserData)));
+    }
+  }, [dispatch]);
+
   const validate = () => {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
@@ -60,12 +70,14 @@ export default function SignIn() {
       console.log({ jsonData });
 
       if (!response.ok) {
-        console.log(response);
+        // console.log(response);
         setError(jsonData.message);
       } else {
         dispatch(changeIsUserLogin(true));
-        console.log("data", jsonData.data);
+        // console.log("data", jsonData.data);
         dispatch(addUserLoginData(jsonData.data));
+
+        localStorage.setItem("userData", JSON.stringify(jsonData.data));
 
         dispatch(changeIsSignInStatus(false));
       }

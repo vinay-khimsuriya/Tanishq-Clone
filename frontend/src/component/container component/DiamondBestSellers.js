@@ -83,7 +83,6 @@ export default function DiamondBestSellers() {
       const response = await axios.get("http://localhost:4500/api/product");
 
       if (response ?? response.data) {
-        // console.log(response.data);
         setData(response.data);
 
         const filter = response.data.filter((dataObject, index) =>
@@ -92,19 +91,10 @@ export default function DiamondBestSellers() {
         // console.log(filter);
         setFilteredData(filter);
       }
-      //or if(response.status == 200){}
     } catch (error) {
       console.log(error);
     }
   };
-
-  //   if (!filteredData) {
-  //     return (
-  //       <div className="w-full flex items-center justify-center text-2xl">
-  //         <div>Data is loading...</div>
-  //       </div>
-  //     );
-  //   }
 
   return (
     <div className="w-full pb-10">
@@ -124,10 +114,17 @@ export default function DiamondBestSellers() {
               <Link
                 key={index}
                 to={"product"}
-                onClick={() => dispatch(addProduct(product))}
+                onClick={() => {
+                  dispatch(addProduct(product));
+                  localStorage.setItem("productId", product._id);
+                }}
+                // onClick={() => {
+                //   localStorage.setItem("productId", product._id);
+                // }}
               >
                 <div className="px-3">
                   <CommonCard product={product} />
+                  {/* <CommonCard /> */}
                 </div>
               </Link>
             ))}

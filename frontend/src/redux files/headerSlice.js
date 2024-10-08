@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storedLoginStatus = localStorage.getItem("userData") ? true : false;
+
 const headerSlice = createSlice({
   name: "header",
   initialState: {
     isSignInDisplay: false,
     isSignUpDisplay: false,
-    isUserLogin: false,
+    isUserLogin: storedLoginStatus,
     isMenuClicked: false,
   },
   reducers: {

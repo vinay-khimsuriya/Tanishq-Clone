@@ -15,7 +15,7 @@ export default function Navbar() {
   const isLogin = useSelector((store) => store.header.isUserLogin);
   const cart = useSelector((store) => store.cart.cart);
 
-  console.log(cart);
+  // console.log(cart);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -40,7 +40,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    console.log("isUserLogin state:", isLogin);
+    // console.log("isUserLogin state:", isLogin);
   }, [isLogin]);
 
   return (

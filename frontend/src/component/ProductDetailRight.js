@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CiHeart } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
 import { FaRupeeSign } from "react-icons/fa";
 import { FaDollarSign } from "react-icons/fa";
@@ -13,18 +12,24 @@ import exchangeFestival from "../img/product detail/exchange-festival.webp";
 import { FaHeart } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import { addProductToCart } from "../redux files/cartSlice";
-import SignIn from "./SignIn";
 import { changeIsSignInStatus } from "../redux files/headerSlice";
+import useProductDetail from "../utils/fetchProductDetailById";
 
 export default function ProductDetailRight() {
-  const productDetail = useSelector((store) => store.product.productDetail);
+  // const productDetail = useSelector((store) => store.product.productDetail);
   const isUserLogin = useSelector((store) => store.header.isUserLogin);
+
+  const { productDetail, loading, error } = useProductDetail();
   const dispatch = useDispatch();
 
   const [isRupee, setIsRupee] = useState(true);
-  const [productPrice, setProductPrice] = useState(productDetail.price);
+  const [productPrice, setProductPrice] = useState();
   const [quantityNumber, setQuantityNumber] = useState(1);
   const [isLike, setIsLike] = useState(false);
+
+  useEffect(() => {
+    setProductPrice(productDetail?.price);
+  }, [productDetail]);
 
   return (
     <div className="w-full p-2 px-12">
@@ -32,8 +37,10 @@ export default function ProductDetailRight() {
         <div className="w-full ">
           <div className="flex justify-between items-center">
             <div className="text-start">
-              <p className="text-xs">{productDetail._id}</p>
-              <h3 className="text-lg font-medium">{productDetail.title}</h3>
+              <p className="text-xs">{productDetail && productDetail._id}</p>
+              <h3 className="text-lg font-medium">
+                {productDetail && productDetail.title}
+              </h3>
             </div>
             <div className="flex text-3xl gap-1 items-center ms-4">
               {!isLike ? (
@@ -52,7 +59,7 @@ export default function ProductDetailRight() {
           </div>
           <div className="w-full bg-black h-[1px] mt-5 hidden md:block"></div>
           <div className="text-justify mt-8 text-xs">
-            <p className="">{productDetail.description}</p>
+            <p className="">{productDetail && productDetail.description}</p>
             <p className="py-1 lg:hidden">
               see full
               <span className="text-default-extra-high mx-1 font-medium hover:cursor-pointer hover:underline">
@@ -79,8 +86,8 @@ export default function ProductDetailRight() {
                 setIsRupee(!isRupee);
                 {
                   isRupee
-                    ? setProductPrice(Math.floor(productDetail.price / 83))
-                    : setProductPrice(productDetail.price);
+                    ? setProductPrice(Math.floor(productDetail?.price / 83))
+                    : setProductPrice(productDetail?.price);
                 }
               }}
             >

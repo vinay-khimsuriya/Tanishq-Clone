@@ -1,62 +1,45 @@
 const express = require("express");
+const { verifyToken } = require("../middlewares/verifyToken");
 const {
-  verifyTokenAndAuthorization,
-  verifyTokenAndAdmin,
-  verifyToken,
-} = require("../middlewares/verifyToken");
-const Cart = require("../models/cart.model");
+  getCartByUserId,
+  addProductToCart,
+  updateProductQuantity,
+  removeProductFromCart,
+  clearCart,
+} = require("../controllers/cartController");
+
 const router = express.Router();
 
-router.post("/", verifyToken, async (req, res) => {
-  const newCart = new Cart(req.body);
-  try {
-    const savedCart = await newCart.save();
-    res.status(200).json({ savedCart, success: true, error: false });
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+router.get("/:userId", getCartByUserId);
 
-router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
-  try {
-    const updatedCart = await Cart.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: req.body,
-      },
-      { new: true }
-    );
-    res.status(200).json(updatedCart);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+router.post("/add", addProductToCart);
 
-router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
-  try {
-    await Cart.findByIdAndDelete(req.params.id);
-    res.status(200).json("Cart has been deleted");
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+router.put("/update", updateProductQuantity);
 
-router.get("/find/:id", verifyTokenAndAuthorization, async (req, res) => {
-  try {
-    const cart = await Cart.findOne({ userId: req.params.id });
-    res.status(200).json(cart);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+router.delete("/remove", removeProductFromCart);
 
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
-  try {
-    const carts = await Cart.find();
-    res.status(200).json(carts);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+router.delete("/clear/:userId", clearCart);
 
 module.exports = router;
+
+// const express = require("express");
+
+// const router = express.Router();
+
+// router.post("/add");
+
+// const {
+//   addToCart,
+//   updateCart,
+//   clearCart,
+//   deleteCartItem,
+//   getCartItem,
+// } = require("../controllers/cartController");
+
+// router.post("/add", addToCart);
+// router.post("/update", updateCart);
+// router.post("/clearcart", clearCart);
+// router.delete("/add", deleteCartItem);
+// router.get("/getCartItem", getCartItem);
+
+// module.exports = router;

@@ -1,10 +1,8 @@
-const express = require("express");
-const router = express.Router();
 const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    console.log("Saving File Into Public/ images/profile");
+    console.log("Saving File Into Public/images/profile");
     cb(null, "./public/images/profile");
   },
   filename: (req, file, cb) => {
@@ -14,14 +12,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({
+export const upload = multer({
   storage: storage,
   limits: { fileSize: 1024 * 1024 * 2 },
 });
-
-const { register, login } = require("../controllers/authController");
-
-router.post("/register", upload.single("image"), register);
-router.post("/login", login);
-
-module.exports = router;

@@ -1,16 +1,17 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import useProductDetail from "../utils/fetchProductDetailById";
 
 export default function ProductDetailLeft() {
-  const productDetail = useSelector((store) => store.product.productDetail);
+  const { productDetail, loading, error } = useProductDetail();
+
   const images = [];
 
   const horiContRef = useRef(null);
   const verContRef = useRef(null);
-  const verSubContRef = useRef(null);
+  const verSubContRef = useRef([]);
 
   useEffect(() => {
     if (horiContRef.current) {
@@ -19,8 +20,8 @@ export default function ProductDetailLeft() {
         behavior: "smooth",
       });
     }
-    if (verContRef.current) {
-      let scroll = verSubContRef.current.clientHeight * 3;
+    if (verContRef.current && verSubContRef.current[0]) {
+      let scroll = verSubContRef.current[0].clientHeight * 3;
       verContRef.current.scrollBy({
         top: scroll,
         behavior: "smooth",
@@ -44,7 +45,7 @@ export default function ProductDetailLeft() {
         });
       }
     }
-    if (verContRef.current) {
+    if (verContRef.current && verSubContRef.current[0]) {
       const { scrollTop, clientHeight, scrollHeight } = verContRef.current;
 
       if (scrollTop + clientHeight >= scrollHeight - 5) {
@@ -54,7 +55,7 @@ export default function ProductDetailLeft() {
         });
       } else {
         verContRef.current.scrollBy({
-          top: verSubContRef.current.clientHeight,
+          top: verSubContRef.current[0].clientHeight,
           behavior: "smooth",
         });
       }
@@ -75,7 +76,7 @@ export default function ProductDetailLeft() {
         });
       }
     }
-    if (verContRef.current) {
+    if (verContRef.current && verSubContRef.current[0]) {
       const { scrollTop } = verContRef.current;
       if (scrollTop <= 0) {
         verContRef.current.scrollTo({
@@ -84,7 +85,7 @@ export default function ProductDetailLeft() {
         });
       } else {
         verContRef.current.scrollBy({
-          top: -verSubContRef.current.clientHeight,
+          top: -verSubContRef.current[0].clientHeight,
           behavior: "smooth",
         });
       }
@@ -92,9 +93,14 @@ export default function ProductDetailLeft() {
   };
 
   for (let i = 0; i < 6; i++) {
-    images.push(productDetail.image);
+    if (productDetail) {
+      images.push(productDetail.image);
+    }
   }
-  console.log(images);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading product details</p>;
+
   return (
     <div className="w-full">
       <div className="flex py-1">
@@ -107,7 +113,7 @@ export default function ProductDetailLeft() {
         </p>
         <p> | </p>
         <p className="text-orange-900 font-medium px-3 cursor-pointer truncate">
-          {productDetail.title}
+          {productDetail ? productDetail.title : " "}
         </p>
       </div>
       <div className="w-full flex pt-10 lg:pb-1 items-center">
@@ -116,12 +122,12 @@ export default function ProductDetailLeft() {
           ref={verContRef}
         >
           <div className="w-full flex flex-wrap items-center justify-center">
-            {images.map((image, index) => (
-              <div className="w-full shrink-0 py-2" ref={verSubContRef}>
-                <img className="w-full border border-black" src={image} />
-                {/* <h1>{index}</h1> */}
-              </div>
-            ))}
+            {images &&
+              images.map((image, index) => (
+                <div className="w-full shrink-0 py-2" ref={verSubContRef}>
+                  <img className="w-full border border-black" src={image} />
+                </div>
+              ))}
           </div>
         </div>
 

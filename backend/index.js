@@ -20,12 +20,14 @@ const userRoute = require("./routes/userRoute");
 const productRoute = require("./routes/productRoute");
 const categoryRoute = require("./routes/productCategoryRoutes");
 const categoryTypeRoute = require("./routes/categoryTypeRoute");
+const cartRoutes = require("./routes/cartRoute");
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/product", productRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/categoryType", categoryTypeRoute);
+app.use("/api/cart", cartRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL)
