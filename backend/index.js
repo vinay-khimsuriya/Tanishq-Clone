@@ -18,16 +18,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
 const productRoute = require("./routes/productRoute");
-const categoryRoute = require("./routes/productCategoryRoutes");
 const categoryTypeRoute = require("./routes/categoryTypeRoute");
 const cartRoutes = require("./routes/cartRoute");
+const categoryRoute = require("./routes/categoryRoute");
+const subCategoryRoute = require("./routes/subCategoryRoute");
+const subCategoryDataRoute = require("./routes/subCategoryDataRoute");
+const productdetailRoute = require("./routes/productdetailRoute.js");
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/product", productRoute);
-app.use("/api/category", categoryRoute);
 app.use("/api/categoryType", categoryTypeRoute);
 app.use("/api/cart", cartRoutes);
+app.use("/api/admin/managecategory/category", categoryRoute);
+app.use("/api/admin/managecategory/subcategory", subCategoryRoute);
+app.use("/api/admin/managecategory/subcategorydata", subCategoryDataRoute);
+app.use("/api/admin/productdetail/", productdetailRoute);
 
 mongoose
   .connect(process.env.MONGO_URL)

@@ -23,9 +23,9 @@ export default function IsUserLogin() {
       <div className="flex flex-col items-center justify-center border-b-2 pb-3">
         <img
           src={localUserData ? localUserData.image : ""}
-          className="size-24 border border-2 outline-dotted my-1 mb-2 rounded-full"
+          className="size-24 border-2 outline-dotted my-1 mb-2 rounded-full"
         ></img>
-        <p className="text-sm font-medium text-pretty text-lg">
+        <p className=" font-medium text-pretty text-lg">
           {localUserData ? localUserData.userName : ""}
         </p>
       </div>

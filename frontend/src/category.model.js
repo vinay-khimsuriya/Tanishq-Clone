@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Subcategory = require("./subCategory.model.js"); // Import Subcategory schema
 
 const CategorySchema = new mongoose.Schema(
   {
@@ -6,6 +7,12 @@ const CategorySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    subcategory: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Subcategory",
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -5,17 +5,26 @@ import MyAccount from "./MyAccount";
 import { useDispatch, useSelector } from "react-redux";
 import IsUserLogin from "./IsUserLogin";
 import { changeIsMenuClicked } from "../redux files/headerSlice";
+import useGetCartItems from "../custom hooks/useGetCartItems";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isLargeScreen, setIsLargeScreen] = useState(true);
+  const isLogin = useSelector((store) => store.header.isUserLogin);
   const [isHovered, setIsHovered] = useState(false);
+  const [cartsize, setCartSize] = useState(0);
+
+  const { cartLength } = useGetCartItems();
+
+  useEffect(() => {
+    setCartSize(cartLength ? cartLength : 0);
+  }, [cartLength]);
+
+  console.log(cartLength);
 
   const dispatch = useDispatch();
 
-  const isLogin = useSelector((store) => store.header.isUserLogin);
   const cart = useSelector((store) => store.cart.cart);
-
-  // console.log(cart);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -39,13 +48,9 @@ export default function Navbar() {
     setIsHovered(true);
   };
 
-  useEffect(() => {
-    // console.log("isUserLogin state:", isLogin);
-  }, [isLogin]);
-
   return (
     <div className="w-full flex flex-col items-center justify-center sticky top-0 z-50">
-      <div className="w-full flex justify-center bg-[#f2eae8]">
+      <div className="w-full flex justify-center bg-header">
         <div className="w-full lg:w-[85%] mx-4 mb-4 lg:mx-0 lg:mb-0 py-[0.35rem] flex flex-wrap lg:flex-nowrap justify-between items-center">
           <div className="flex items-center">
             <div className="block lg:hidden pr-2 pl-1 pb-1 lg:pb-2 text-3xl hover:cursor-pointer opacity-55">
@@ -83,20 +88,20 @@ export default function Navbar() {
                         : `Search for Gold Jewellery, Diamond Jewellery and more…`
                     }
                   ></input>
-                  <div className="flex items-center gap-5 justify-between">
+                  <div className="flex items-center gap-5 justify-between text-primary">
                     <div className="px-3 text-lg">
                       <div className="hover:cursor-pointer">
-                        <i className="fa-solid fa-camera text-[#895c5d]"></i>
+                        <i className="fa-solid fa-camera "></i>
                       </div>
                     </div>
                     <div className="pr-3 text-lg">
                       <div className="hover:cursor-pointer">
-                        <i class="fa-solid fa-microphone text-[#895c5d]"></i>
+                        <i class="fa-solid fa-microphone "></i>
                       </div>
                     </div>
                     <div className="pr-3 text-lg">
                       <div className="hover:cursor-pointer">
-                        <i className="fa-solid fa-magnifying-glass text-[#895c5d]"></i>
+                        <i className="fa-solid fa-magnifying-glass "></i>
                       </div>
                     </div>
                   </div>
@@ -104,7 +109,7 @@ export default function Navbar() {
               </div>
             </section>
           </div>
-          <div className="flex text-[#995c5c] gap-[1.30rem] lg:gap-4 justify-evenly mr-[10px]">
+          <div className="flex text-primary gap-[1.30rem] lg:gap-4 justify-evenly mr-[10px]">
             <div className="w-fit relative hover:text-[#c95c5c] lg:py-2 hover-underline">
               <a href="#">
                 <div className="">
@@ -153,16 +158,16 @@ export default function Navbar() {
               </a>
             </div>
             <div className="w-fit  hover:text-[#c95c5c] relative pb-2 lg:py-2 hover-underline">
-              <a href="#">
+              <Link to="cart">
                 <div>
                   <div className="w-full h-6 text-lg lg:text-xl">
                     <i class="fa-solid fa-cart-arrow-down"></i>
                   </div>
                   <span className="hidden lg:block">Cart</span>
                 </div>
-              </a>
-              <div className="flex items-center justify-center absolute -top-1 lg:top-0 -right-[0.75rem] bg-[#a95c5c] rounded-full px-[0.4rem] py-[0.1rem] text-white text-xs">
-                <span>{cart.length}</span>
+              </Link>
+              <div className="flex items-center justify-center absolute -top-1 lg:top-0 -right-[0.75rem] bg-primary rounded-full px-[0.4rem] py-[0.1rem] text-white text-xs">
+                <span>{cartsize}</span>
               </div>
             </div>
           </div>

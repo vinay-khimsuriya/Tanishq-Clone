@@ -29,18 +29,18 @@ export default function Footer() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-default-light mt-5 py-14">
+    <div className="w-full flex flex-col items-center justify-center bg-footer mt-5 py-14">
       <div className="w-5/6">
         <div className="w-full lg:flex justify-between text-start text-lg">
           <div className="flex gap-5">
             <div className="w-full">
               <div
-                className="flex items-center justify-between text-default-extra-high cursor-pointer mb-2 lg:mb-12"
+                className="flex items-center justify-between text-primary cursor-pointer mb-2 lg:mb-12"
                 onClick={() => {
                   setIsUseFullLinks(!isUsefulLinks);
                 }}
               >
-                <h1 className="font-medium text-[1.375rem]">Useful Links</h1>
+                <h1 className="font-medium">Useful Links</h1>
                 {!isUsefulLinks && (
                   <i class="fa-solid fa-plus text-lg lg:hidden"></i>
                 )}
@@ -78,12 +78,12 @@ export default function Footer() {
           <div className="flex gap-5">
             <div className="w-full">
               <div
-                className="flex items-center justify-between text-default-extra-high cursor-pointer mb-2 lg:mb-12"
+                className="flex items-center justify-between text-primary cursor-pointer mb-2 lg:mb-12"
                 onClick={() => {
                   setIsInformation(!isInformation);
                 }}
               >
-                <h1 className="font-medium text-[1.375rem]">Information</h1>
+                <h1 className="font-medium ">Information</h1>
                 {!isInformation && (
                   <i class="fa-solid fa-plus text-lg lg:hidden"></i>
                 )}
@@ -118,12 +118,12 @@ export default function Footer() {
           <div className="flex gap-5">
             <div className="w-full">
               <div
-                className="flex items-center justify-between text-default-extra-high cursor-pointer mb-2 lg:mb-12"
+                className="flex items-center justify-between text-primary cursor-pointer mb-2 lg:mb-12"
                 onClick={() => {
                   setIsContentctUS(!isContectUs);
                 }}
               >
-                <h1 className="font-medium text-[1.375rem]">Contact Us</h1>
+                <h1 className="font-medium">Contact Us</h1>
                 {!isContectUs && (
                   <i class="fa-solid fa-plus text-lg lg:hidden"></i>
                 )}
@@ -190,7 +190,7 @@ export default function Footer() {
         <div className="w-full hidden lg:block h-[0.05rem] rounded-full bg-black mt-10"></div>
       </div>
       <div className="w-5/6 flex flex-col lg:flex-row items-center justify-between pt-10">
-        <div className="flex flex-wrap w-2/3 lg:w-auto my-4 lg:my-0 lg:w-auto order-2 lg:order-1 gap-10 text-4xl ps-14 text-default-high">
+        <div className="flex flex-wrap w-2/3 lg:w-auto my-4 lg:my-0 order-2 lg:order-1 gap-10 text-4xl ps-14 text-primary">
           <i class="fa-brands fa-cc-visa"></i>
           <i class="fa-brands fa-cc-mastercard"></i>
           <i class="fa-brands fa-cc-paypal"></i>
@@ -199,7 +199,7 @@ export default function Footer() {
           <i class="fa-solid fa-building-columns"></i>
           <i class="fa-solid fa-money-check-dollar"></i>
         </div>
-        <div className="text-sm flex lg:flex-col justify-center items-center flex-wrap w-2/3 lg:w-auto order-1 lg:order-2 lg:auto text-default-light">
+        <div className="text-sm flex lg:flex-col justify-center items-center flex-wrap w-2/3 lg:w-auto order-1 lg:order-2 lg:auto text-primary">
           <div className="order-2 lg:order-1 my-4 lg:my-0">
             <p>© 2024 Titan Company Limited. All Rights Reserved</p>
           </div>

@@ -21,10 +21,8 @@ export default function SignIn() {
   }, []);
 
   useEffect(() => {
-    // Check localStorage on component mount
     const storedUserData = localStorage.getItem("userData");
     if (storedUserData) {
-      // If user data exists in localStorage, update Redux state
       dispatch(changeIsUserLogin(true));
       dispatch(addUserLoginData(JSON.parse(storedUserData)));
     }
@@ -88,11 +86,11 @@ export default function SignIn() {
   };
 
   return (
-    <div className="w-full flex justify-center items-center h-screen bg-black bg-opacity-35 fixed top-0 left 0 z-[60]">
-      <div className="w-[28rem] flex justify-center bg-[#f2eae8] text-[#995c5c] rounded-xl relative">
+    <div className="w-full flex justify-center items-center h-screen bg-black bg-opacity-25 fixed top-0 left 0 z-[60]">
+      <div className="w-[28rem] flex justify-center bg-header text-primary rounded-xl relative">
         <div className="absolute top-2 right-4 font-bold text-xl">
           <i
-            class="fa-solid fa-xmark"
+            className="fa-solid fa-xmark cursor-pointer"
             onClick={() => dispatch(changeIsSignInStatus(false))}
           ></i>
         </div>
@@ -110,7 +108,7 @@ export default function SignIn() {
                   ref={usernameRef}
                   type="text"
                   placeholder="Enter your username"
-                  class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                  class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-700 focus:outline-none"
                 />
               </div>
               <div class="mb-4">
@@ -121,7 +119,7 @@ export default function SignIn() {
                   ref={passwordRef}
                   type="password"
                   placeholder="Enter strong password"
-                  class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                  class="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:ring-1 focus:ring-blue-700 focus:outline-none"
                 />
               </div>
               <div class="flex items-center mb-4">

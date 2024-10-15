@@ -16,11 +16,15 @@ import { changeIsSignInStatus } from "../redux files/headerSlice";
 import useProductDetail from "../utils/fetchProductDetailById";
 
 export default function ProductDetailRight() {
-  // const productDetail = useSelector((store) => store.product.productDetail);
   const isUserLogin = useSelector((store) => store.header.isUserLogin);
 
   const { productDetail, loading, error } = useProductDetail();
   const dispatch = useDispatch();
+
+  const userData = localStorage.getItem("userData");
+
+  const jsonObject = JSON.parse(userData);
+  // console.log(jsonObject);
 
   const [isRupee, setIsRupee] = useState(true);
   const [productPrice, setProductPrice] = useState();
@@ -30,6 +34,34 @@ export default function ProductDetailRight() {
   useEffect(() => {
     setProductPrice(productDetail?.price);
   }, [productDetail]);
+
+  const addToCart = async () => {
+    const data = {
+      userId: jsonObject._id,
+      productId: productDetail._id,
+      quantity: quantityNumber,
+    };
+    // console.log(data);
+
+    try {
+      const response = await fetch("http://localhost:4500/api/cart/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const jsonData = await response.json();
+
+        // console.log("response>>>>>> cart", jsonData.message);
+        alert(jsonData.message);
+      }
+    } catch (error) {
+      console.error("Error during sign in:", error);
+    }
+  };
 
   return (
     <div className="w-full p-2 px-12">
@@ -186,7 +218,10 @@ export default function ProductDetailRight() {
               className="w-1/2 sm:w-auto md:w-1/2 xl:w-auto sm:px-10 md:px-0 xl:px-10 py-5 text-black text-center text-nowrap border hover:bg-orange-900 hover:text-white"
               onClick={() => {
                 if (isUserLogin) {
-                  dispatch(addProductToCart(productDetail));
+                  {
+                    dispatch(addProductToCart(productDetail));
+                    addToCart();
+                  }
                 } else {
                   dispatch(changeIsSignInStatus(true));
                 }

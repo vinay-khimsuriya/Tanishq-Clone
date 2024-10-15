@@ -1,5 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import CartIsEmpty from "./CartIsEmpty";
+import CartIs from "./CartIs";
 
 export default function Cart() {
-  return <div></div>;
+  const isLogin = useSelector((store) => store.header.isUserLogin);
+
+  return <div>{isLogin ? <CartIs /> : <CartIsEmpty />}</div>;
 }
