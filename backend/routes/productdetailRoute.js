@@ -1,7 +1,5 @@
-const express = requre("express");
-
+const express = require("express");
 const router = express.Router();
+// router.post("/",);
 
-router.post("/");
-
-exports.module = router;
+module.exports = router;

@@ -31,6 +31,8 @@ const ManageCategory = () => {
         const categoryData = await fetchcategory1();
         setCategory(categoryData?.categories);
         setIsCategory(true);
+
+        console.log("category >>>>>", category);
       } catch (error) {
         console.error("Error fetching data:", error);
         setError(error);

@@ -23,7 +23,7 @@ const cartRoutes = require("./routes/cartRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const subCategoryRoute = require("./routes/subCategoryRoute");
 const subCategoryDataRoute = require("./routes/subCategoryDataRoute");
-const productdetailRoute = require("./routes/productdetailRoute.js");
+const productdetailRoute = require("./routes/productdetailRoute");
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
