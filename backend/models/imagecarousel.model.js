@@ -17,7 +17,7 @@ const imagecarouselSchema = new mongoose.Schema(
     card: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "imagecarouselcard",
+        ref: "productdetail",
       },
     ],
   },

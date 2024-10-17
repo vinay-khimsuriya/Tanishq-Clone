@@ -24,6 +24,9 @@ const categoryRoute = require("./routes/categoryRoute");
 const subCategoryRoute = require("./routes/subCategoryRoute");
 const subCategoryDataRoute = require("./routes/subCategoryDataRoute");
 const productdetailRoute = require("./routes/productdetailRoute");
+const maincategoryRoute = require("./routes/product/maincategoryRoute");
+const mainsubcategoryRoute = require("./routes/product/mainsubcategoryRoute");
+const mainproductRoute = require("./routes/product/mainproductRoute");
 
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
@@ -34,6 +37,9 @@ app.use("/api/admin/managecategory/category", categoryRoute);
 app.use("/api/admin/managecategory/subcategory", subCategoryRoute);
 app.use("/api/admin/managecategory/subcategorydata", subCategoryDataRoute);
 app.use("/api/admin/productdetail/", productdetailRoute);
+app.use("/api/maincategory/", maincategoryRoute);
+app.use("/api/mainsubcategory/", mainsubcategoryRoute);
+app.use("/api/mainproduct/", mainproductRoute);
 
 mongoose
   .connect(process.env.MONGO_URL)

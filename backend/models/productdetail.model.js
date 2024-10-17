@@ -35,7 +35,6 @@ const productdatailSchema = new mongoose.Schema(
     discountprice: {
       type: Number,
     },
-
     images: [
       {
         imageUrl: {

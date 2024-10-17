@@ -135,19 +135,30 @@ const AddProduct = ({ setIsShow }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const productData = {
-      name: nameRef.current.value,
-      price: priceRef.current.value,
-      weight: weightRef.current.value,
-      karat: karatRef.current.value,
-      diamondCT: diamondCTRef.current.value,
-      category: categoryName,
-      subcategory: subcategoryName,
-      subcategoryType: selectedSubCategoryType,
-      images: selectedImages,
-    };
-    console.log("Product Data: ", productData);
-    // You can now handle submitting this product data
+    if (
+      nameRef.current.value &&
+      priceRef.current.value &&
+      weightRef.current.value &&
+      categoryName &&
+      subcategoryName &&
+      selectedSubCategoryType &&
+      selectedImages
+    ) {
+      const productData = {
+        name: nameRef.current.value,
+        price: priceRef.current.value,
+        weight: weightRef.current.value,
+        karat: karatRef.current.value,
+        diamondCT: diamondCTRef.current.value,
+        category: categoryName,
+        subcategory: subcategoryName,
+        subcategoryType: selectedSubCategoryType,
+        images: selectedImages,
+      };
+      console.log("Product Data: ", productData);
+    } else {
+      console.log("missing data");
+    }
   };
 
   return (

@@ -11,7 +11,9 @@ const EditProduct = ({ setIsEdit }) => {
         >
           <RxCross1 />
         </span>
-        <form className="w-500px bg-white border border-primary rounded-md"></form>
+        <form className="w-500px bg-white border border-primary rounded-md">
+            
+        </form>
       </div>
     </div>
   );
