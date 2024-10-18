@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../../multerConfiguration");
 
 const {
   addProduct,
@@ -9,7 +10,7 @@ const {
   getProducBySubcategoryId,
 } = require("../../controllers/product/mainproductController");
 
-router.post("/", addProduct);
+router.post("/", upload.array("images"), addProduct);
 router.put("/", updateProduct);
 router.get("/", getAllProduct);
 router.post("/category/:id", addProduct);

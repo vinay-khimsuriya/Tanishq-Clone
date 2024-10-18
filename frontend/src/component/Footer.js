@@ -29,7 +29,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center bg-footer mt-5 py-14">
+    <div className="w-full flex flex-col items-center justify-center bg-footer py-14">
       <div className="w-5/6">
         <div className="w-full lg:flex justify-between text-start text-lg">
           <div className="flex gap-5">

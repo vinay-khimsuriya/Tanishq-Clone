@@ -43,6 +43,10 @@ const appRouter = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
+      {
+        path: "/shop",
+        element: <ShopMenu />,
+      },
     ],
   },
   {

@@ -17,11 +17,11 @@ const mainCategory = new mongoose.Schema(
     },
     subcategories: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "mainsubcategory",
+      ref: "Mainsubcategory",
     },
     products: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "mainproduct",
+      ref: "Mainproduct",
     },
   },
   { timestamps: true }

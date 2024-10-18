@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,6 +8,7 @@
   --footer-bg-color: #efe3e3;
   --primary-color: #832728;
   --secondary-color: #8b898a;
+  --shop-bg-color: #eeeeee;
   --cart-logo-bg-color: #f8f4f3;
   --alert-background-color: #fff7ec;
 }
@@ -160,13 +162,44 @@ code {
 .next-arrow {
   position: absolute;
   top: 50%;
-  right: -50px; /* Adjust to move arrow outside */
+  right: -50px;
   transform: translateY(-50%);
 }
 
 .prev-arrow {
   position: absolute;
   top: 50%;
-  left: -50px; /* Adjust to move arrow outside */
+  left: -50px;
   transform: translateY(-50%);
+}
+
+/* .shop-card {
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease;
+} */
+
+@media screen and (min-width: 756px) {
+  .shop-card:hover .primary-div {
+    border-bottom-right-radius: 0;
+    @apply shadow-md shadow-gray-500;
+  }
+  .shop-card:hover .img-div {
+    transform: scale(0.95);
+    border-radius: 0;
+  }
+  .shop-card:hover .bestseller-div {
+    border-bottom-right-radius: 8px;
+  }
+
+  .shop-card:hover .scroll-div {
+    @apply right-0;
+  }
+
+  .shop-card:hover .img-div img {
+    @apply rounded-none;
+  }
+
+  .shop-card:hover .btn-div {
+    height: 50px;
+    @apply border border-b-0 border-r-0 border-gray-200;
+  }
 }

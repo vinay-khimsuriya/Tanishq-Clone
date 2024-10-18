@@ -3,13 +3,13 @@ const router = express.Router();
 
 const {
   addSubcategory,
-  updateSubcategory,
+  updateSubcategoryProducts,
   getAllSubcategory,
   getSubcategorynbyId,
 } = require("../../controllers/product/mainsubcategoryController");
 
 router.post("/", addSubcategory);
-router.put("/", updateSubcategory);
+router.put("/", updateSubcategoryProducts);
 router.get("/", getAllSubcategory);
 router.get("/", getSubcategorynbyId);
 

@@ -19,6 +19,9 @@ module.exports = {
         secondary: "var(--secondary-color)",
         cartlogobg: "var(--cart-logo-bg-color)",
       },
+      fontFamily: {
+        neuton: ["Neuton", "sans-serif"],
+      },
     },
   },
   plugins: [],

@@ -6,12 +6,23 @@ const mainSubcategory = new mongoose.Schema(
       type: String,
       required: true,
     },
-    categories: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "maincategory",
+    innerCategory: {
+      type: String,
     },
+    categoryId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Maincategory",
+    },
+    products: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Mainproduct",
+      },
+    ],
   },
   {
     timestamps: true,
   }
 );
+
+module.exports = mongoose.model("Mainsubcategory", mainSubcategory);
