@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const collectionSchema = new mongoose.Schema(
+const primaryCategorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -19,6 +19,18 @@ const collectionSchema = new mongoose.Schema(
     seconduryImage: {
       type: String,
     },
+    seconduryCategoryIds: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Secondurycategory",
+      },
+    ],
+    subcategoryIds: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Primarysubcategory",
+      },
+    ],
     productIds: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -26,9 +38,10 @@ const collectionSchema = new mongoose.Schema(
       },
     ],
   },
+
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("Collection", collectionSchema);
+module.exports = mongoose.model("Primarycategory", primaryCategorySchema);

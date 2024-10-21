@@ -1,23 +1,39 @@
 const mongoose = require("mongoose");
 
-const mainProduct = new mongoose.Schema(
+const mainProductSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
     },
+    slug: {
+      type: String,
+    },
     dec: {
       type: String,
     },
-    price: {
+    orignalPrice: {
       type: Number,
       required: true,
     },
+    discountedPrice: {
+      type: Number,
+      required: true,
+    },
+    discount: {
+      type: String,
+    },
     gender: {
       type: String,
+      enum: ["male", "female", "kids", "teen", "kids & teens"],
+      required: true,
     },
     occasion: {
       type: String,
+    },
+    karat: {
+      type: String,
+      enum: ["18k", "22k", "24k"],
     },
     purity: {
       type: String,
@@ -37,14 +53,25 @@ const mainProduct = new mongoose.Schema(
       ref: "Maincategory",
       required: true,
     },
-
-    subcategoryId: {
+    subcategoryId: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Mainsubcategory",
+      },
+    ],
+    collectionId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Mainsubcategory",
+      ref: "Collection",
+    },
+    primaryImge: {
+      type: String,
+    },
+    seconduryImage: {
+      type: String,
     },
     images: [{ type: String }],
   },
   {}
 );
 
-module.exports = mongoose.model("Mainproduct", mainProduct);
+module.exports = mongoose.model("Mainproduct", mainProductSchema);

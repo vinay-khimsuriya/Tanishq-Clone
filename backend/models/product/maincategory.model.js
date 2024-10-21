@@ -6,6 +6,10 @@ const mainCategory = new mongoose.Schema(
       type: String,
       required: true,
     },
+    slug: {
+      type: String,
+      required: true,
+    },
     dec: {
       type: String,
     },
@@ -15,6 +19,12 @@ const mainCategory = new mongoose.Schema(
     seconduryImage: {
       type: String,
     },
+    categoryZero: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "",
+      },
+    ],
     subcategories: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Mainsubcategory",

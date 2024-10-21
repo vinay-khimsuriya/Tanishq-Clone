@@ -26,6 +26,7 @@ const addCollection = async (req, res) => {
       dec,
       primaryImage,
       seconduryImage,
+      //   smallScreenImage,
     });
 
     await newCollection.save();

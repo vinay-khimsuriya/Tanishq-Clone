@@ -5,18 +5,18 @@ const router = express.Router();
 const {
   addCollection,
   updateCollection,
-  getCollectionById,
   getCollection,
+  getCollectionBySlug,
   deleteCollection,
   deleteCollectionById,
 } = require("../../controllers/product/collectionController");
 
 router.post(
   "/",
-  upload.fields[
-    ({ name: "primaryImage", maxCount: 1 },
-    { name: "seconduryImage", maxCount: 1 })
-  ],
+  upload.fields([
+    { name: "primaryImage", maxCount: 1 },
+    { name: "seconduryImage", maxCount: 1 },
+  ]),
   addCollection
 );
 router.put(
@@ -24,6 +24,7 @@ router.put(
   upload.fields([
     { name: "primaryImage", maxCount: 1 },
     { name: "seconduryImage", maxCount: 1 },
+    // { name: "smallScreenImage", maxCount: 1 },
   ]),
   updateCollection
 );
