@@ -9,6 +9,7 @@ const seconduryCategorySchema = new mongoose.Schema(
     slug: {
       type: String,
       required: true,
+      unique: true,
     },
     primaryCategoryId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -18,6 +19,12 @@ const seconduryCategorySchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Mainproduct",
+      },
+    ],
+    subcategoryIds: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Primarysubcategory",
       },
     ],
   },

@@ -19,6 +19,10 @@ const collectionSchema = new mongoose.Schema(
     seconduryImage: {
       type: String,
     },
+    primarysubcategoryId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Primarysubcategory",
+    },
     productIds: [
       {
         type: mongoose.Schema.Types.ObjectId,

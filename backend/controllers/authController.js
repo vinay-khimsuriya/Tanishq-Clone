@@ -34,18 +34,9 @@ const register = async (req, res) => {
       success: true,
       error: false,
     });
-    // res.status(201).json({
-    //   message: "User saved successfully",
-    // });
   } catch (error) {
     console.log("Error Registaring User >>>>>>>", error);
     res.status(500).json({ message: "Internal Server Error" });
-    // res.status(400).json({
-    //   data: {},
-    //   message: error.message,
-    //   success: false,
-    //   error: true,
-    // });
   }
 };
 

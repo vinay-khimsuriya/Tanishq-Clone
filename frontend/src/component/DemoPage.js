@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Category() {
+const DemoPage = () => {
   const [data, setData] = useState([]);
   const [seconduryCategory, setSeconduryCategory] = useState([]);
   const [subcategory, setSubcategory] = useState([]);
@@ -67,17 +67,17 @@ export default function Category() {
 
   return (
     <div className="w-full flex justify-center items-center uppercase">
-      <div className="w-5/6 text-slate-900 font-normal text-opacity-80 text-xs xl:text-sm  hidden lg:flex items-center justify-between">
+      <div className="w-5/6 text-slate-900 font-normal text-opacity-80 text-xs xl:text-sm  hidden lg:flex items-center justify-center">
         <ul className="flex text-nowrap w-full justify-evenly">
           {data.length > 0 &&
             data.map((category, index) => (
               <li
-                className="py-3 px-2 relative cursor-pointer text-nowrap"
+                className="py-1 px-2 relative cursor-pointer text-nowrap"
                 key={index}
                 onMouseOver={() => handleMouseEnter(category._id)}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link className="py-3" to={`/shop/${category.slug}`}>
+                <Link className="py-1" to={`/shop/${category.slug}`}>
                   {category.name}
                 </Link>
                 <div
@@ -150,4 +150,6 @@ export default function Category() {
       </div>
     </div>
   );
-}
+};
+
+export default DemoPage;

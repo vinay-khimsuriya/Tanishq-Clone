@@ -7,10 +7,9 @@ const primarySubcategorySchema = new mongoose.Schema(
       required: true,
     },
     slug: {
-      type: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+      unique: true,
     },
     dec: {
       type: String,

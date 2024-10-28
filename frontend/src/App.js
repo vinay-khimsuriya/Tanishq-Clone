@@ -11,6 +11,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import { changeIsUserLogin } from "./redux files/headerSlice";
 import { addUserLoginData } from "./redux files/userSlice";
 import { useEffect } from "react";
+import DemoPage from "./component/DemoPage";
 
 function App() {
   const isSignInDisplay = useSelector((store) => store.header.isSignInDisplay);
@@ -34,7 +35,9 @@ function App() {
       {isSignUpDisplay && <SignUp />}
       <Menubar />
       <ScrollToTop />
+
       <Outlet />
+
       <Footer />
     </div>
   );
