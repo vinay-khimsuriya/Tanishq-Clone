@@ -48,11 +48,13 @@ const mainProductSchema = new mongoose.Schema(
     metalColor: {
       type: String,
     },
-    categoryId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Maincategory",
-      required: true,
-    },
+    categoryId: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Maincategory",
+        required: true,
+      },
+    ],
     subcategoryId: [
       {
         type: mongoose.Schema.Types.ObjectId,

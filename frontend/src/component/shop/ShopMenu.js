@@ -4,6 +4,7 @@ import { TbFilter } from "react-icons/tb";
 import { IoIosArrowDown } from "react-icons/io";
 import ShopCard from "./ShopCard";
 import { BsThreeDots } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ShopMenu = () => {
   const [name, setname] = useState("Bangels");
@@ -12,7 +13,9 @@ const ShopMenu = () => {
     <div className="w-full">
       <div className="w-full flex justify-center py-5 bg-gradient-to-t from-[#eeeeee] to-[#ffffff]">
         <div className="w-full px-10 xl:px-0 xl:w-5/6 pt-4 flex justify-start gap-2 items-center ">
-          <p className="text-lg">Home</p>
+          <Link to={"/"} className="text-lg cursor-pointer">
+            Home
+          </Link>
           <SlArrowRight />
           <p className="font-medium text-primary text-lg">Bangles</p>
         </div>

@@ -11,8 +11,8 @@ const useGetCartItems = () => {
 
   useEffect(() => {
     if (isLogin && userId) {
+      fetchData();
     }
-    fetchData();
   }, [isLogin, userId]);
 
   const fetchData = async () => {

@@ -19,6 +19,7 @@ import Default from "./admin/Default.js";
 import ManageCategory from "./admin/ManageCategory.js";
 import ShopMenu from "./component/shop/ShopMenu.js";
 import ManageProduct from "./admin/ManageProduct.js";
+import Product from "./admin/Product.js";
 
 const appRouter = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/shop/:shopId",
     element: <ShopMenu />,
+  },
+  {
+    path: "/add",
+    element: <Product />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
