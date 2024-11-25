@@ -141,23 +141,3 @@ module.exports = {
   removeProductFromCart,
   clearCart,
 };
-
-// const Cart = require("../models/cart.model.js");
-
-// const addToCart = async (req, res) => {};
-
-// const updateCart = async (req, res) => {};
-
-// const clearCart = async (req, res) => {};
-
-// const deleteCartItem = async (req, res) => {};
-
-// const getCartItem = async (req, res) => {};
-
-// module.exports = {
-//   addToCart,
-//   updateCart,
-//   clearCart,
-//   deleteCartItem,
-//   getCartItem,
-// };
