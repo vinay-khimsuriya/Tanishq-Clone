@@ -7,7 +7,7 @@ const useGetCartItems = () => {
   const [cartLength, setCartLength] = useState(null);
   const [cartData, setCartData] = useState([]);
 
-  const { userId } = useGetUserData();
+  const { userId, accessToken } = useGetUserData();
 
   useEffect(() => {
     if (isLogin && userId) {
@@ -17,12 +17,18 @@ const useGetCartItems = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:4500/api/cart/${userId}`);
+      const response = await fetch(`http://localhost:4500/api/cart/${userId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
       if (!response) {
         throw new Error("Failed to fetch cart Detail");
       }
-
       const data = await response.json();
+
       setCartData(data);
       setCartLength(data?.products?.length || null);
     } catch (error) {

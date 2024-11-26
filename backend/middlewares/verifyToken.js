@@ -2,11 +2,21 @@ const jwt = require("jsonwebtoken");
 
 const verifyToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
-  console.log("authHeader :>> ", authHeader);
-  if (authHeader) {
-    console.log("verifyToken :>> ");
-    const token = authHeader.split(" ")[1];
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+
+  // console.log("authHeader :>> ", authHeader);
+
+  if (!authHeader) {
+    return res.status(401).json({ message: "Authorization token is required" });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  // if (!token) {
+  //   return res.status(401).json({ message: "Token is missing or malformed" });
+  // }
+
+  try {
+    jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, user) => {
       if (err) {
         res.status(401).json({
           message: "Invalid Token",
@@ -18,8 +28,9 @@ const verifyToken = async (req, res, next) => {
         return res.status(401).json("You are not authenticated");
       }
     });
-  } else {
-    next();
+  } catch (error) {
+    console.log("Token verification error:", error.message);
+    return res.status(401).json({ message: "Invalid or expired token" });
   }
 };
 

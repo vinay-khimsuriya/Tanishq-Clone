@@ -41,13 +41,12 @@ code {
   display: block;
   width: 0;
   position: absolute;
-  top: 100%;
+  top: 95%;
   height: 1.5px;
   border-radius: 5px;
   margin-left: -5%;
   background-color: #c95c5c;
   transition: width 0.5s ease;
-  /* margin-top: 4px; */
 }
 
 .hover-underline:hover::after {

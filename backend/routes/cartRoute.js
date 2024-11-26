@@ -10,15 +10,15 @@ const {
 
 const router = express.Router();
 
-router.get("/:userId", getCartByUserId);
+router.get("/:userId", verifyToken, getCartByUserId);
 
-router.post("/add", addProductToCart);
+router.post("/add", verifyToken, addProductToCart);
 
-router.put("/update", updateProductQuantity);
+router.put("/update", verifyToken, updateProductQuantity);
 
-router.delete("/remove", removeProductFromCart);
+router.delete("/remove", verifyToken, removeProductFromCart);
 
-router.delete("/clear/:userId", clearCart);
+router.delete("/clear/:userId", verifyToken, clearCart);
 
 module.exports = router;
 

@@ -20,11 +20,9 @@ export default function Navbar() {
     setCartSize(cartLength ? cartLength : 0);
   }, [cartLength]);
 
-  console.log(cartLength);
-
   const dispatch = useDispatch();
 
-  const cart = useSelector((store) => store.cart.cart);
+  // const cart = useSelector((store) => store.cart.cart);
 
   useEffect(() => {
     const checkScreenSize = () => {

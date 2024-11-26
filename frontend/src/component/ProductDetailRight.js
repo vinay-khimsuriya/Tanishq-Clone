@@ -14,17 +14,14 @@ import { FaRegHeart } from "react-icons/fa";
 import { addProductToCart } from "../redux files/cartSlice";
 import { changeIsSignInStatus } from "../redux files/headerSlice";
 import useProductDetail from "../utils/fetchProductDetailById";
+import useGetUserData from "../custom hooks/useGetUserData";
 
 export default function ProductDetailRight() {
   const isUserLogin = useSelector((store) => store.header.isUserLogin);
 
-  const { productDetail, loading, error } = useProductDetail();
+  const { productDetail } = useProductDetail();
+  const { userId, accessToken } = useGetUserData();
   const dispatch = useDispatch();
-
-  const userData = localStorage.getItem("userData");
-
-  const jsonObject = JSON.parse(userData);
-  // console.log(jsonObject);
 
   const [isRupee, setIsRupee] = useState(true);
   const [productPrice, setProductPrice] = useState();
@@ -37,25 +34,27 @@ export default function ProductDetailRight() {
 
   const addToCart = async () => {
     const data = {
-      userId: jsonObject._id,
+      userId,
       productId: productDetail._id,
       quantity: quantityNumber,
     };
-    // console.log(data);
 
     try {
       const response = await fetch("http://localhost:4500/api/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
-        const jsonData = await response.json();
+      const jsonData = await response.json();
 
-        // console.log("response>>>>>> cart", jsonData.message);
+      if (!response.ok) {
+        console.log("response>>>>", response.json());
+        alert(jsonData.message);
+      } else {
         alert(jsonData.message);
       }
     } catch (error) {

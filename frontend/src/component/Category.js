@@ -18,7 +18,7 @@ export default function Category() {
         );
         if (response && response.data) {
           setData(response?.data?.category);
-          console.log(response?.data?.category);
+          // console.log(response?.data?.category);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -32,7 +32,7 @@ export default function Category() {
     setActiveCategoryId(id);
 
     const categoryId = data.find((catId) => catId._id === id);
-    console.log(categoryId);
+    // console.log(categoryId);
 
     if (categoryId) {
       if (
@@ -54,7 +54,7 @@ export default function Category() {
   };
 
   if (subcategory) {
-    console.log("subcategory >>>>>", subcategory);
+    // console.log("subcategory >>>>>", subcategory);
   }
 
   const handleMouseLeave = () => {
@@ -77,7 +77,10 @@ export default function Category() {
                 onMouseOver={() => handleMouseEnter(category._id)}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link className="py-3" to={`/shop/${category.slug}`}>
+                <Link
+                  className="py-3 hover-underline"
+                  to={`/shop/${category.slug}`}
+                >
                   {category.name}
                 </Link>
                 <div
